@@ -41,6 +41,24 @@ public class MainActivity extends AppCompatActivity {
         display(quantity);
         displayPrice(quantity * priceOfCoffee);
     }
+
+    public void submitOrder(View view){
+        int price = calculatePrice();
+        String priceMessage = "Total: $" + price;
+        priceMessage = priceMessage + "\nThank you!";
+        displayMessage(priceMessage);
+    }
+
+    /**
+     * Calculates the price of the order.
+     * @return total price
+     */
+    private int calculatePrice() {
+        int price = quantity * 5;
+        return price;
+    }
+
+
     /**
      * This method displays the given quantity value on the screen.
      */
@@ -52,4 +70,13 @@ public class MainActivity extends AppCompatActivity {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
+    }
+
 }
